@@ -3,8 +3,14 @@ import pandas as pd
 import pickle
 import numpy as np
 
-# Set page title
-st.set_page_title("House Price Prediction App")
+# ====== PERBAIKAN DI SINI ======
+# Mengubah st.set_page_title menjadi st.set_page_config
+st.set_page_config(
+    page_title="House Price Prediction App",
+    page_icon="🏠",
+    layout="centered"
+)
+# ===============================
 
 # Load the saved model and scaler
 with open('linear_regression_model.pkl', 'rb') as f:
@@ -45,7 +51,3 @@ if st.button("Predict Price"):
     
     # Display result
     st.success(f"The estimated price for this house is: ${prediction[0]:,.2f}")
-
-# Instructions to run the app in Colab
-# !pip install streamlit
-# !streamlit run app.py & npx localtunnel --port 8501
